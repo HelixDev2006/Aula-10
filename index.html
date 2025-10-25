@@ -3,74 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <style>
-    @import 'tailwindcss/base';
-    @import 'tailwindcss/components';
-    @import 'tailwindcss/ultilities';
-
-    .dropdown-menu {
-      transform: translateY(-10px);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease-in-out;
-      positon-event: none;
-    }
-
-    .dropdown:hover .dropdown-menu {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .menu-link {
-      transition: all 0.3s ease;
-    }
-
-    .dropdown:hover .arrow {
-      transform: rotate(180deg);
-    }
-
-    .arrow {
-      transition: transform 0.3s ease;
-    }
-  </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .dropdown-menu {
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+        pointer-events: none;
+      }
+      .dropdown:hover .dropdown-menu {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .menu-link {
+        transition: all 0.3s ease;
+      }
+      .dropdown:hover .arrow {
+        transform: rotate(180deg);
+      }
+      .arrow {
+        transition: transform 0.3s ease;
+      }
+    </style>
 </head>
-<body class="bg-gray-50 min-h-scream">
+<body class="bg-gray-50 min-h-screen">
    <header class="bg-white shadow-lg sticky top-0 z-50">
-     <div class="max-w-7x1 mx-auto px-8">
+     <div class="max-w-7xl mx-auto px-8">
        <div class="flex justify-between items-center h-16">
         <div class="flex-shrink-0">
-          <h1 class="text- 3x1 font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
-          
-          hover:from-purple-600 to-blue-600
-          transition-all duration-300 cursor-pointer
-          ">
+          <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300 cursor-pointer">
           HelixDev
           </h1>
         </div>
         <nav class="flex space-x-8">
-          <a href="#" class="menu-link text-gray-700 hover:text-blue-600 text-sm font-medium hover:bg-blue-50 transition-colors duration-200">
+          <a href="#" class="menu-link text-gray-700 hover:text-blue-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-blue-50 transition-colors duration-200">
             Home
           </a>
-
-          <div class="drop-shadow relative">
-            <button class="menu-link text-gray-700 hover:text-blue-600 text-sm font-medium hover:bg-blue-50 transition-colors duration-200">
+          <div class="dropdown relative">
+            <button class="menu-link text-gray-700 hover:text-blue-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-blue-50 transition-colors duration-200 flex items-center gap-1">
               Serviços
+              <svg class="arrow w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
             </button>
+            <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">Serviço 1</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">Serviço 2</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">Serviço 3</a>
+            </div>
           </div>
-
-          <div class="drop-shadow relative">
-            <button class="menu-link text-gray-700 hover:text-blue-600 text-sm font-medium hover:bg-blue-50 transition-colors duration-200">
+          <div class="dropdown relative">
+            <button class="menu-link text-gray-700 hover:text-blue-600 text-sm font-medium px-3 py-2 rounded-md hover:bg-blue-50 transition-colors duration-200 flex items-center gap-1">
               Agradecimentos
+              <svg class="arrow w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
             </button>
+            <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">Agradecimento 1</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">Agradecimento 2</a>
+            </div>
           </div>
-
         </nav>
        </div>
      </div>
-   </header>    
+   </header>
+   
+   <main class="max-w-7xl mx-auto px-8 py-12">
+     <h2 class="text-2xl font-bold text-gray-800 mb-4">Bem-vindo ao HelixDev</h2>
+     <p class="text-gray-600">Passe o mouse sobre "Serviços" ou "Agradecimentos" para ver os menus dropdown funcionando!</p>
+   </main>
 </body>
 </html>
